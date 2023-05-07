@@ -9,9 +9,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="order-orchestrator" />
         <module name="inventory-service" />
-        <module name="order-service" />
         <module name="payment-service" />
         <module name="common-dto" />
+        <module name="dummy-service3" />
+        <module name="dummy-service1" />
+        <module name="order-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +23,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common-dto" options="-parameters" />
+      <module name="dummy-service1" options="-parameters" />
+      <module name="dummy-service3" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
       <module name="order-orchestrator" options="-parameters" />
       <module name="order-service" options="-parameters" />
