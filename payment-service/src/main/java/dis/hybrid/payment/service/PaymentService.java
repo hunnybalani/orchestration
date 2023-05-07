@@ -17,9 +17,9 @@ public class PaymentService {
     @PostConstruct
     private void init(){
         this.userBalanceMap = new HashMap<>();
-        this.userBalanceMap.put(1, 10000000d);
-        this.userBalanceMap.put(2, 10000000d);
-        this.userBalanceMap.put(3, 10000000d);
+        this.userBalanceMap.put(1, 1000d);
+        this.userBalanceMap.put(2, 1000d);
+        this.userBalanceMap.put(3, 1000d);
     }
 
     public PaymentResponseDTO debit(final PaymentRequestDTO requestDTO){

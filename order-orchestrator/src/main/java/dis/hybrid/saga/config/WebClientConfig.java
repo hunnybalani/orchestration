@@ -25,28 +25,4 @@ public class WebClientConfig {
                 .build();
     }
 
-    @Bean
-    @Qualifier("dummy1")
-    public WebClient dummy1Client(@Value("${service.endpoints.dummy1}") String endpoint){
-        return WebClient.builder()
-            .baseUrl(endpoint)
-            .build();
-    }
-
-    @Bean
-    @Qualifier("dummy2")
-    public WebClient dummy2Client(@Value("${service.endpoints.dummy2}") String endpoint){
-        return WebClient.builder()
-            .baseUrl(endpoint)
-            .build();
-    }
-
-    @Bean
-    @Qualifier("dummy3")
-    public WebClient dummy3Client(@Value("${service.endpoints.dummy3}") String endpoint){
-        return WebClient.builder()
-            .baseUrl(endpoint)
-            .build();
-    }
-
 }
