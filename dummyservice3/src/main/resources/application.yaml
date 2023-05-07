@@ -1,0 +1,11 @@
+spring.cloud.stream:
+  function:
+    definition: dummy3Processor
+  bindings:
+    dummy3Processor-in-0:
+      destination: dummy-event
+    dummy3Processor-out-0:
+      destination: order-updated
+  kafka:
+    binder:
+      replication-factor: 1

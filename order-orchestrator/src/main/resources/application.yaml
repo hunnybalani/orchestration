@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8089
 ---
 spring.cloud.stream:
   function:
@@ -8,7 +8,7 @@ spring.cloud.stream:
     processor-in-0:
       destination: order-created
     processor-out-0:
-      destination: order-updated
+      destination: dummy-event
   kafka:
     binder:
       replication-factor: 1

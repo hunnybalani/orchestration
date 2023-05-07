@@ -21,10 +21,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vinsguru</groupId>
-	<artifactId>saga-orchestration</artifactId>
+	<artifactId>hybrid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>saga-orchestration</name>
-	<description>Demo project for saga-orchestration</description>
+	<name>hybrid</name>
+	<description>Demo project for hybrid</description>
 
 	<properties>
 		<java.version>11</java.version>
