@@ -17,9 +17,9 @@ public class InventoryService {
     @PostConstruct
     private void init(){
         this.productInventoryMap = new HashMap<>();
-        this.productInventoryMap.put(1, 5);
-        this.productInventoryMap.put(2, 5);
-        this.productInventoryMap.put(3, 5);
+        this.productInventoryMap.put(1, 1000000000);
+        this.productInventoryMap.put(2, 1000000000);
+        this.productInventoryMap.put(3, 1000000000);
     }
 
     public InventoryResponseDTO deductInventory(final InventoryRequestDTO requestDTO){

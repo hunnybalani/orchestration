@@ -5,8 +5,7 @@ import dis.orchestration.dto.OrchestratorRequestDTO;
 import dis.orchestration.dto.OrchestratorResponseDTO;
 import dis.orchestration.dto.PaymentRequestDTO;
 import dis.orchestration.enums.OrderStatus;
-import dis.orchestration.saga.service.steps.InventoryStep;
-import dis.orchestration.saga.service.steps.PaymentStep;
+import dis.orchestration.saga.service.steps.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -26,6 +25,18 @@ public class OrchestratorService {
     @Autowired
     @Qualifier("inventory")
     private WebClient inventoryClient;
+
+    @Autowired
+    @Qualifier("dummy1")
+    private WebClient dummy1Client;
+
+    @Autowired
+    @Qualifier("dummy2")
+    private WebClient dummy2Client;
+    @Autowired
+    @Qualifier("dummy3")
+    private WebClient dummy3Client;
+
 
     public Mono<OrchestratorResponseDTO> orderProduct(final OrchestratorRequestDTO requestDTO){
         Workflow orderWorkflow = this.getOrderWorkflow(requestDTO);
@@ -53,7 +64,10 @@ public class OrchestratorService {
     private Workflow getOrderWorkflow(OrchestratorRequestDTO requestDTO){
         WorkflowStep paymentStep = new PaymentStep(this.paymentClient, this.getPaymentRequestDTO(requestDTO));
         WorkflowStep inventoryStep = new InventoryStep(this.inventoryClient, this.getInventoryRequestDTO(requestDTO));
-        return new OrderWorkflow(List.of(paymentStep, inventoryStep));
+        WorkflowStep dummy1Step = new Dummy1Step(this.dummy1Client);
+        WorkflowStep dummy2Step = new Dummy2Step(this.dummy2Client);
+        WorkflowStep dummy3Step = new Dummy3Step(this.dummy3Client);
+        return new OrderWorkflow(List.of(paymentStep, inventoryStep, dummy1Step, dummy2Step, dummy3Step));
     }
 
     private OrchestratorResponseDTO getResponseDTO(OrchestratorRequestDTO requestDTO, OrderStatus status){

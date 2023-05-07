@@ -17,3 +17,6 @@ service:
   endpoints:
     inventory: http://localhost:8081
     payment: http://localhost:8082
+    dummy1: http://localhost:8084
+    dummy2: http://localhost:8085
+    dummy3: http://localhost:8086
